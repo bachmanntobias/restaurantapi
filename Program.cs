@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.IO;    
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
@@ -15,6 +15,7 @@ namespace RestaurantAPI
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
@@ -23,3 +24,4 @@ namespace RestaurantAPI
                 .Build();
     }
 }
+

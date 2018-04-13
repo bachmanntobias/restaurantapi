@@ -12541,15 +12541,12 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\bachmann\\source\\repos\\RestaurantAPI\\RestaurantAPI\\RestaurantAPI.csproj",
+      "projectUniqueName": "C:\\users\\bachmann\\source\\repos\\restaurantapi\\restaurantapi\\RestaurantAPI.csproj",
       "projectName": "RestaurantAPI",
-      "projectPath": "C:\\Users\\bachmann\\source\\repos\\RestaurantAPI\\RestaurantAPI\\RestaurantAPI.csproj",
+      "projectPath": "C:\\users\\bachmann\\source\\repos\\restaurantapi\\restaurantapi\\RestaurantAPI.csproj",
       "packagesPath": "C:\\Users\\bachmann\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bachmann\\source\\repos\\RestaurantAPI\\RestaurantAPI\\obj\\",
+      "outputPath": "C:\\users\\bachmann\\source\\repos\\restaurantapi\\restaurantapi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
