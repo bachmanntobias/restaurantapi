@@ -2,10 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace RestaurantAPI
 {
-    public class IGreeter
+    public interface IGreeter
     {
+        String GetMessageOfTheDay();
+    }
+    public class Greeter : IGreeter
+    {
+        private IConfiguration _configuration;
+
+        public Greeter(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+            public String GetMessageOfTheDay()
+            {
+                return _configuration["Greeting"];
+            }
     }
 }
+
+
