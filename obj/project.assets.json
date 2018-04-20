@@ -12541,9 +12541,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\bachmann\\source\\repos\\RestaurantAPI\\RestaurantAPI\\RestaurantAPI.csproj",
       "projectName": "RestaurantAPI",

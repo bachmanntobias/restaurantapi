@@ -6,19 +6,30 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RestaurantAPI.Data;
 using RestaurantAPI.Services;
 
 namespace RestaurantAPI
 {
     public class Startup
     {
+        private IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IGreeter, Greeter>();
+            services.AddDbContext<DbContextClass>(options => options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IRestaurantData, SQLData>();
             services.AddMvc();
         }
         // 
@@ -32,29 +43,29 @@ namespace RestaurantAPI
             //app.UseDefaultFiles();
             //app.UseStaticFiles();
 
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-
+           
             app.UseStaticFiles();
 
             app.UseMvc(ConfigureRoutes);
 
             //app.UseMvcWithDefaultRoute();
+            
 
-
+        
 
             app.Run(async (context) =>
                  {
                  //   //throw new Exception("Error");
                 
                  var greeting = greeter.GetMessageOfTheDay();
-                     context.Response.ContentType = "text/plain";
+                 context.Response.ContentType = "text/plain";
                  await context.Response.WriteAsync($"{greeting} : {env.EnvironmentName}");
-        });
+                 });
 
 
 
@@ -62,7 +73,7 @@ namespace RestaurantAPI
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {
-            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}");
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
